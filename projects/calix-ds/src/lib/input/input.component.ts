@@ -9,6 +9,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class InputComponent {
 
   @Input() label = 'Label';
+  @Input() tooltip = 'Information'
   @Input() value = '';
   @Input() isMandatory = true;
   @Input() placeholder = 'Placeholder';

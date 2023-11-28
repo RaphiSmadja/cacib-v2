@@ -1,6 +1,7 @@
 <div class="flex">
-    <label *ngIf="label" [class.mandatory]="isMandatory">{{ label }}</label>
-    <input [placeholder]="placeholder" (input)="onInputChange($event)"  [value]="value"/>
+    <div><label *ngIf="label" [class.mandatory]="isMandatory">{{ label }}</label> <span *ngIf="tooltip" class="help-icon"
+            aria-label="Aide" [attr.data-tooltip]="tooltip">ⓘ</span></div>
+    <input [placeholder]="placeholder" (input)="onInputChange($event)" [value]="value" />
     <small *ngIf="hintText" class="hint-text">{{ hintText }}</small>
     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
 </div>
