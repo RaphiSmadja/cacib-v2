@@ -102,6 +102,37 @@
           }
         }
       }
+    },
+    "calix-ds": {
+      "projectType": "library",
+      "root": "projects/calix-ds",
+      "sourceRoot": "projects/calix-ds/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/calix-ds/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/calix-ds/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/calix-ds/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/calix-ds/src/test.ts",
+            "tsConfig": "projects/calix-ds/tsconfig.spec.json",
+            "karmaConfig": "projects/calix-ds/karma.conf.js"
+          }
+        }
+      }
     }
   }
 }

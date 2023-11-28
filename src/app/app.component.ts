@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'calix-design-system';
+  
+  handleInputValue(value: string): void {
+    console.log('Valeur du champ de saisie :', value);
+  }
 }
