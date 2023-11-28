@@ -1,7 +1,6 @@
 <div class="flex">
-    <label htmlFor="label" *ngIf="label" [class.mandatory]="isMandatory">{{ label }}</label>
-    <input pInputText id="input" [placeholder]="placeholder" aria-describedby="input-help"
-        (input)="onInputChange($event)" />
+    <label *ngIf="label" [class.mandatory]="isMandatory">{{ label }}</label>
+    <input [placeholder]="placeholder" (input)="onInputChange($event)"  [value]="value"/>
     <small *ngIf="hintText" class="hint-text">{{ hintText }}</small>
     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
 </div>

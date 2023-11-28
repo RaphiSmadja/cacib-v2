@@ -6,30 +6,21 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./input.component.scss']
 })
 
-export class InputComponent implements OnInit {
+export class InputComponent {
 
-  @Input() label: string = 'Label';
-  @Input() isMandatory: boolean = true;
-  @Input() placeholder: string = 'Placeholder';
-  @Input() hintText: string = 'This is a hint text to help user';
+  @Input() label = 'Label';
+  @Input() value = '';
+  @Input() isMandatory = true;
+  @Input() placeholder = 'Placeholder';
+  @Input() hintText = 'This is a hint text to help user';
+  @Input() errorMessage = 'Error message';
 
   @Output() inputValueChanged = new EventEmitter<string>();
-  errorMessage!: string;
+
   onInputChange(event: Event): void {
-    this.errorMessage = '';
-
-    const value = (event.target as HTMLTextAreaElement).value;
-    if (value.trim() === '' && this.isMandatory) {
-      this.errorMessage = 'This field is required';
-    } else {
-      const result = `calix-${value}`;
-      this.inputValueChanged.emit(result);
-    }
-  }
-
-  constructor() { }
-
-  ngOnInit(): void {
+    this.value = (event.target as HTMLInputElement).value;
+    const result = `calix-${this.value}`;
+    this.inputValueChanged.emit(result);
   }
 
 }
